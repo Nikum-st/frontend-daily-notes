@@ -35,3 +35,18 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 align-items: center;
+
+##Question 4
+Какие свойства влияют на создание нового контекста наложения (stacking context) в CSS?
+
+##Answer
+Контекст наложения (stacking context) это концепция трёхмерного расположения HTML-элементов вдоль оси Z по отношению к пользователю, находящемуся перед экраном. HTML-элементы занимают это место по порядку, основанному на атрибутах элемента.
+
+позиционирован абсолютно (position:absolute) или относительно (position:relative) с z-index значением отличным от "auto",
+flex элемент с z-index отличным от "auto", чей родительский элемент имеет свойство display: flex|inline-flex,
+элементы с opacity меньше чем 1. (См. the specification for opacity),
+элементы с transform отличным от "none",
+элементы с mix-blend-mode значением отличным от "normal",
+элементы с filter значением отличным от "none",
+элементы с isolation установленным в "isolate",
+position: fixed
