@@ -50,3 +50,28 @@ flex элемент с z-index отличным от "auto", чей родите
 элементы с filter значением отличным от "none",
 элементы с isolation установленным в "isolate",
 position: fixed
+
+##Question 5
+Что делает свойство z-index
+
+##Answer
+Свойство z-index управляет порядком наложения (z-ось) позиционированных HTML-элементов (имеющих position: relative | absolute | fixed | sticky и display: flex | grid, если применимо).
+
+Чем выше значение z-index, тем выше (ближе к пользователю) элемент окажется в стеке наложения, то есть он будет перекрывать элементы с меньшим значением.
+
+Работает только внутри одного stacking context.
+Новый stacking context создаётся, например, у элементов с position + z-index, opacity < 1, transform, filter, will-change и др.
+Значение может быть отрицательным (z-index: -1) — элемент будет "ниже" других.
+
+##Example
+.box1 {
+position: absolute;
+z-index: 10;
+}
+
+.box2 {
+position: absolute;
+z-index: 5;
+}
+
+В этом примере .box1 будет отображаться поверх .box2.

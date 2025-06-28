@@ -88,9 +88,54 @@ if (typeof data === "string") {
 return "";
 }
 
-return data;
+    return data;
+
 }
 
 function throwError(text: string): never {
 throw new Error(text);
+}
+
+##Question 4
+Что такое type guard в TypeScript и зачем он нужен?
+
+##Answer
+Type guard (защитник типов) — это механизм, позволяющий уточнить, к какому типу принадлежит значение в определённом контексте. Он используется для логической проверки типов во время выполнения, чтобы компилятор понимал, с каким именно типом работает код. Это особенно важно при работе с объединёнными (union) или неизвестными (unknown) типами — например, string | number.
+`typeof`: для примитивов (`string`, `number`, `boolean`, `symbol`, `bigint`, `undefined`, `function`)
+`instanceof`: для классов и объектов
+Пользовательские функции с `is` : например, `function isString(value: unknown): value is string`
+
+##Example
+// typeof
+function handle(value: string | number) {
+if (typeof value === 'string') {
+console.log(value.toUpperCase()); // TypeScript знает, что это string
+} else {
+console.log(value.toFixed(2)); // А здесь — number
+}
+}
+
+// instanceof
+class Animal {
+makeSound() {}
+}
+class Dog extends Animal {
+bark() {}
+}
+
+function makeNoise(animal: Animal) {
+if (animal instanceof Dog) {
+animal.bark(); // TypeScript знает, что это Dog
+}
+}
+
+// Пользовательская функция
+function isString(value: unknown): value is string {
+return typeof value === 'string';
+}
+
+function process(value: unknown) {
+if (isString(value)) {
+console.log(value.toUpperCase());
+}
 }
