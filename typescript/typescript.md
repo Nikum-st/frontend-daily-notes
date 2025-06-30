@@ -139,3 +139,29 @@ if (isString(value)) {
 console.log(value.toUpperCase());
 }
 }
+
+##Question 5
+Что такое readonly в TypeScript и чем отличается от const?
+
+##Answer
+readonly — это модификатор, применяемый к свойствам объектов, чтобы запретить их изменение после инициализации.Readonly<T> — это утилитный тип, делающий все свойства объекта T только для чтения.
+
+const — это ключевое слово, которое делает переменную неизменной (нельзя переназначить ссылку), но не защищает содержимое объекта.
+
+Отличие:
+const защищает переменную, но не её внутреннее состояние.
+readonly защищает свойства объекта.
+
+##Example
+
+type house {
+city: string,
+size: number
+}
+
+const myHouse: Readonly<house> = {
+city: New-York,
+size: 100
+}
+
+myHouse.city = Moscow //❌ Ошибка: нельзя изменить свойство, так как оно readonly
