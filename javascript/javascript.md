@@ -136,3 +136,31 @@ const user = { name: "Alice" };
 
 const greetUser = greet.bind(user); // создаём новую функцию с this = user
 greetUser(); // Hello, Alice
+
+##Question 8
+В чём разница между null и undefined?
+
+##Answer
+null - это явное отсутствие значение у перменной, она инициализирована как "пустая". В отличии от underfined(неопределенный) - переменная объявлена, но значенич не присвоено
+
+##Example
+let a;
+console.log(a); // undefined
+
+let b = null;
+console.log(b); // null
+
+##Question 9
+Чем отличается event.preventDefault() от event.stopPropagation()?
+
+##Answer
+Обе функции используются для управления поведением событий в JavaScript, но делают разное. event.preventDefault() — отменяет поведение по умолчанию, например, отправку формы или переход по ссылке. а stopPrepagation останавивает распростраения события по DOM дереву, которое по умолчанию стоит "всплытие", то есть от элемента по которому было произведено событие и до глобального элемента windows
+
+##Example
+form.addEventListener('submit', function(e) {
+e.preventDefault(); // форма не отправляется
+});
+
+button.addEventListener('click', function(e) {
+e.stopPropagation(); // событие не "всплывает" выше
+});
