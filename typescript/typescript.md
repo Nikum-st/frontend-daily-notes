@@ -211,3 +211,21 @@ const myArray = [1, 2, 3] as const;
 
 const myObject = { a: 1, b: "hi" } as const;
 // Тип: { readonly a: 1; readonly b: "hi" }
+
+#Question 8
+Что делает Partial<T> utility type в TypeScript?
+
+##Answer
+делает все свйоства этого типа необязательными
+
+##Example
+interface User {
+id: number;
+name: string;
+email: string;
+}
+
+// Теперь все поля необязательны
+const update: Partial<User> = {
+name: "New Name",
+};

@@ -164,3 +164,13 @@ e.preventDefault(); // форма не отправляется
 button.addEventListener('click', function(e) {
 e.stopPropagation(); // событие не "всплывает" выше
 });
+
+##Question 10
+Что делает оператор ?? и чем он отличается от ||?
+
+##Answer
+Оператор ?? — это nullish coalescing operator (оператор объединения с null). Он возвращает правый операнд только если левый равен null или undefined. || возвращает правый операнд, если значение левого операнда является falsy(underfined,null,0,"",NaN,false)
+
+##Example
+const a = 0 || 42 // будет значение 42
+const b = 0 ?? 42 // будет значение 0
