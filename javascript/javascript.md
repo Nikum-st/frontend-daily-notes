@@ -222,3 +222,16 @@ obj3.b.c = 20;
 
 console.log(obj1.a); // Вывод: 1
 console.log(obj1.b.c); // Вывод: 2// изменение не повлияло ни на что
+
+##Question 14
+Что такое всплытие (event bubbling) и как его остановить?
+
+##Answer
+Всплытие (event bubbling) — это процесс, при котором событие, произошедшее на вложенном элементе, последовательно передаётся (всплывает) вверх по иерархии DOM к его родителям, вплоть до document.
+
+Чтобы остановить всплытие, нужно в обработчике события вызвать метод event.stopPropagation().
+
+##Exapmle
+element.addEventListener('click', (event) => {
+event.stopPropagation();
+});
