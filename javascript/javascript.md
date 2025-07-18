@@ -235,3 +235,10 @@ console.log(obj1.b.c); // Вывод: 2// изменение не повлиял
 element.addEventListener('click', (event) => {
 event.stopPropagation();
 });
+
+##Question 15
+Что произойдёт, если сравнить null == undefined и null === undefined, и почему?
+
+##Answer
+null == undefined возвращает true, потому что при нестрогом сравнении они считаются равными (внутреннее преобразование типов).
+null === undefined возвращает false, потому что строгая проверка сравнивает и тип, и значение. У null и undefined разные типы (object и undefined соответственно).
